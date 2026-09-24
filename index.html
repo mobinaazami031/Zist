@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>شهر یاخته | زیست دهم</title>
+
+<meta name="description" content="بازی آموزشی شهر یاخته برای یادگیری فصل اول زیست‌شناسی دهم">
+
+<link rel="stylesheet" href="style.css">
+```
+
+</head>
+
+<body>
+
+```
+<!-- نوار سازندگان -->
+<div class="creator-bar">
+    ساخته شده با عشق توسط: مبینا اعظمی و نرگس گودرزی
+</div>
+
+<!-- سربرگ -->
+<header class="top-header">
+
+    <div class="brand">
+        <div class="brand-icon">🧬</div>
+
+        <div>
+            <h1>شهر یاخته</h1>
+            <span>ماجراجویی در دنیای سلول</span>
+        </div>
+    </div>
+
+    <div class="score-box">
+        <span class="score-label">امتیاز دانشی</span>
+        <strong id="score">۰</strong>
+    </div>
+
+</header>
+
+
+<!-- نوار پیشرفت -->
+<section class="progress-section">
+
+    <div class="progress-info">
+        <span id="progress-text">مرحله ۱ از ۱۱</span>
+        <span>پیشرفت شهر</span>
+    </div>
+
+    <div class="progress-bar">
+        <div id="progress-fill"></div>
+    </div>
+
+</section>
+
+
+<!-- ========================= -->
+<!-- صفحه ورود -->
+<!-- ========================= -->
+
+<main>
+
+    <section id="welcome-screen" class="screen active-screen">
+
+        <div class="hero-section">
+
+            <div class="hero-text">
+
+                <div class="welcome-badge">
+                    🧫 مأموریت زیستی شما آغاز می‌شود
+                </div>
+
+                <h2>
+                    به <span>شهر یاخته</span> خوش آمدی!
+                </h2>
+
+                <p>
+                    آماده‌ای وارد دنیای شگفت‌انگیز یاخته شوی؟
+                    در این شهر هر اندامک یک ساختمان مهم است و
+                    برای نجات شهر باید مأموریت‌های زیستی را انجام بدهی.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <button id="start-game" class="primary-button">
+                        🚀 ورود به شهر
+                    </button>
+
+                    <button id="help-button" class="secondary-button">
+                        📖 راهنمای بازی
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- نمای شهر -->
+            <div class="city-preview">
+
+                <div class="city-sky">
+
+                    <div class="city-star star-1">✦</div>
+                    <div class="city-star star-2">✦</div>
+                    <div class="city-star star-3">✦</div>
+
+                    <div class="preview-building building-nucleus">
+                        <span>🧠</span>
+                        <small>هسته</small>
+                    </div>
+
+                    <div class="preview-building building-mito">
+                        <span>⚡</span>
+                        <small>راکیزه</small>
+                    </div>
+
+                    <div class="preview-building building-golgi">
+                        <span>📦</span>
+                        <small>گلژی</small>
+                    </div>
+
+                    <div class="preview-building building-ribosome">
+                        <span>🏭</span>
+                        <small>رناتن</small>
+                    </div>
+
+                    <div class="city-road road-one"></div>
+                    <div class="city-road road-two"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- معرفی کوتاه -->
+        <div class="intro-cards">
+
+            <article class="intro-card">
+                <div class="intro-icon">🎯</div>
+                <h3>مأموریت انجام بده</h3>
+                <p>
+                    در هر مرحله یک بخش از شهر یاخته را کشف کن.
+                </p>
+            </article>
+
+            <article class="intro-card">
+                <div class="intro-icon">🧠</div>
+                <h3>یاد بگیر</h3>
+                <p>
+                    با سؤال‌های مفهومی، نکات مهم زیست را یاد بگیر.
+                </p>
+            </article>
+
+            <article class="intro-card">
+                <div class="intro-icon">🏆</div>
+                <h3>امتیاز جمع کن</h3>
+                <p>
+                    با پاسخ‌های درست و کشف شهر، امتیاز دانشی بگیر.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- صفحه اصلی بازی -->
+    <!-- ========================= -->
+
+    <section id="game-screen" class="screen">
+
+        <!-- عنوان مرحله -->
+
+        <div class="stage-header">
+
+            <div class="stage-icon-box">
+                <span id="stage-icon">🏙️</span>
+            </div>
+
+            <div class="stage-info">
+
+                <span id="stage-number">مرحله ۱</span>
+
+                <h2 id="stage-title">
+                    ورود به شهر
+                </h2>
+
+            </div>
+
+            <button id="help-button-game" class="small-button">
+                ❔ راهنما
+            </button>
+
+        </div>
+
+
+        <!-- کارت مأموریت -->
+
+        <section class="mission-card">
+
+            <div class="mission-heading">
+                <span>🎯 مأموریت فعلی</span>
+                <span id="mission-reward">+۵ امتیاز</span>
+            </div>
+
+            <h3 id="mission-title">
+                مأموریت شهر
+            </h3>
+
+            <p id="mission-description">
+                مأموریت این مرحله را انجام بده.
+            </p>
+
+            <div class="mission-objective-box">
+
+                <strong>هدف مأموریت</strong>
+
+                <p id="mission-objective">
+                    ساختمان مربوط به این مرحله را کشف کن.
+                </p>
+
+            </div>
+
+            <div class="mission-story-box">
+
+                <strong>📜 داستان</strong>
+
+                <p id="mission-story">
+                    شهر یاخته منتظر ورود توست...
+                </p>
+
+            </div>
+
+            <button id="discover-button" class="discover-button">
+                🔎 کشف این بخش از شهر
+            </button>
+
+        </section>
+
+
+        <!-- پیام بازی -->
+
+        <div id="game-message" class="game-message hidden"></div>
+
+
+        <!-- کارت سؤال -->
+
+        <section id="question-card" class="question-card hidden">
+
+            <div class="question-top">
+
+                <span id="question-number">
+                    سؤال ۱
+                </span>
+
+                <span id="difficulty-text">
+                    متوسط
+                </span>
+
+            </div>
+
+            <h3 id="question-text">
+                متن سؤال اینجا نمایش داده می‌شود.
+            </h3>
+
+            <div id="answer-options" class="answer-options"></div>
+
+            <!-- بازخورد پاسخ -->
+
+            <div id="answer-feedback" class="answer-feedback hidden">
+
+                <div class="feedback-icon"></div>
+
+                <div class="feedback-content">
+
+                    <strong class="feedback-title"></strong>
+
+                    <p class="feedback-text"></p>
+
+                </div>
+
+            </div>
+
+
+            <!-- کنترل سؤال -->
+
+            <div class="question-controls">
+
+                <button id="previous-question" class="secondary-button">
+                    ↩ سؤال قبل
+                </button>
+
+                <button id="next-question" class="primary-button">
+                    سؤال بعدی ➜
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- کنترل مرحله -->
+
+        <div class="stage-controls">
+
+            <button id="previous-stage" class="secondary-button">
+                ◀ مرحله قبل
+            </button>
+
+            <button id="next-stage" class="primary-button">
+                مرحله بعد ➜
+            </button>
+
+        </div>
+
+
+        <!-- ========================= -->
+        <!-- نقشه کوچک شهر -->
+        <!-- ========================= -->
+
+        <section class="city-map-section">
+
+            <div class="section-title">
+
+                <div>
+                    <span>🗺️</span>
+                    <h2>نقشه شهر یاخته</h2>
+                </div>
+
+                <p>
+                    ساختمان‌های کشف‌شده فعال می‌شوند.
+                </p>
+
+            </div>
+
+
+            <div class="mini-city-map">
+
+                <button
+                    class="mini-building"
+                    data-stage="1"
+                    type="button"
+                >
+                    <span>🚪</span>
+                    <small>ورودی</small>
+                </button>
+
+                <button
+                    class="mini-building"
+                    data-stage="2"
+                    type="button"
+                >
+                    <span>🧠</span>
+                    <small>هسته</small>
+                </button>
+
+                <button
+                    class="mini-building"
+                    data-stage="3"
+                    type="button"
+                >
+                    <span>🏭</span>
+                    <small>رناتن</small>
+                </button>
+
+                <button
+                    class="mini-building"
+                    data-stage="4"
+                    type="button"
+                >
+                    <span>🌐</span>
+                    <small>سیتوپلاسم</small>
+                </button>
+
+                <button
+                    class="mini-building"
+                    data-stage="5"
+                    type="button"
+                >
+                    <span>🕸️</span>
+                    <small>شبکه آندوپلاسمی</small>
+                </button>
+
+                <button
+                    class="mini-building"
+                    data-stage="6"
+                    type="button"
+                >
+                    <span>📦</span>
+                    <small>گلژی</small>
+                </button>
+
+                <button
+                    class="mini-building"
+                    data-stage="7"
+                    type="button"
+                >
+                    <span>⚡</span>
+                    <small>راکیزه</small>
+                </button>
+
+                <button
+                    class="mini-building"
+                    data-stage="8"
+                    type="button"
+                >
+                    <span>♻️</span>
+                    <small>کافنده‌تن</small>
+                </button>
+
+                <button
+                    class="mini-building"
+                    data-stage="9"
+                    type="button"
+                >
+                    <span>🧭</span>
+                    <small>میانک</small>
+                </button>
+
+                <button
+                    class="mini-building"
+                    data-stage="10"
+                    type="button"
+                >
+                    <span>🛡️</span>
+                    <small>غشای یاخته</small>
+                </button>
+
+                <button
+                    class="mini-building"
+                    data-stage="11"
+                    type="button"
+                >
+                    <span>🚨</span>
+                    <small>بحران شهر</small>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- آزمایشگاه اشتباهات -->
+        <!-- ========================= -->
+
+        <section class="mistakes-section">
+
+            <div class="section-title">
+
+                <div>
+                    <span>🔬</span>
+                    <h2>آزمایشگاه اشتباهات من</h2>
+                </div>
+
+                <p>
+                    سؤال‌هایی که اشتباه پاسخ دادی اینجا جمع می‌شوند.
+                </p>
+
+            </div>
+
+            <div id="mistakes-content" class="mistakes-content">
+
+                <div class="empty-state">
+                    <span>🧪</span>
+                    <p>
+                        هنوز اشتباهی ثبت نشده؛ ادامه بده!
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- دستاوردها -->
+        <!-- ========================= -->
+
+        <section class="achievements-section">
+
+            <div class="section-title">
+
+                <div>
+                    <span>🏆</span>
+                    <h2>نشان‌های شهر</h2>
+                </div>
+
+                <p>
+                    با پیشرفت در بازی، نشان‌های جدید باز می‌شوند.
+                </p>
+
+            </div>
+
+            <div class="achievements-grid">
+
+                <div class="achievement-card locked">
+                    <span class="achievement-icon">🌱</span>
+                    <h3>اولین قدم</h3>
+                    <p>ورود به شهر</p>
+                </div>
+
+                <div class="achievement-card locked">
+                    <span class="achievement-icon">🧠</span>
+                    <h3>فرمانده شهر</h3>
+                    <p>کشف هسته</p>
+                </div>
+
+                <div class="achievement-card locked">
+                    <span class="achievement-icon">⚡</span>
+                    <h3>انرژی شهر</h3>
+                    <p>کشف راکیزه</p>
+                </div>
+
+                <div class="achievement-card locked">
+                    <span class="achievement-icon">🏆</span>
+                    <h3>قهرمان یاخته</h3>
+                    <p>پایان مأموریت‌ها</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- مسیر پروتئین -->
+
+        <section class="special-mission">
+
+            <div class="special-mission-content">
+
+                <span class="special-icon">🧬</span>
+
+                <div>
+                    <h2>مأموریت ویژه: مسیر یک پروتئین</h2>
+                    <p>
+                        ببین یک پروتئین چگونه از رناتن تا مقصد خودش حرکت می‌کند.
+                    </p>
+                </div>
+
+                <button
+                    id="protein-route-button"
+                    class="primary-button"
+                >
+                    🚀 شروع مأموریت
+                </button>
+
+            </div>
+
+        </section>
+
+    </section>
+
+</main>
+
+
+<!-- ========================= -->
+<!-- پنجره راهنما -->
+<!-- ========================= -->
+
+<div id="help-modal" class="modal hidden">
+
+    <div class="modal-content">
+
+        <button
+            id="close-help"
+            class="modal-close"
+            type="button"
+        >
+            ×
+        </button>
+
+        <div class="modal-icon">📖</div>
+
+        <h2>راهنمای شهر یاخته</h2>
+
+        <div class="help-list">
+
+            <div>
+                <span>🎯</span>
+                <p>
+                    هر مرحله یک مأموریت دارد. اول بخش جدید شهر را کشف کن.
+                </p>
+            </div>
+
+            <div>
+                <span>🧠</span>
+                <p>
+                    بعد از کشف، سؤال‌های مربوط به آن بخش را پاسخ بده.
+                </p>
+            </div>
+
+            <div>
+                <span>💡</span>
+                <p>
+                    اگر پاسخ اشتباه باشد، بازی دلیل درست یا غلط بودن را توضیح می‌دهد.
+                </p>
+            </div>
+
+            <div>
+                <span>🏆</span>
+                <p>
+                    امتیازها فقط برای نمایش پیشرفت هستند و هیچ مرحله‌ای را قفل نمی‌کنند.
+                </p>
+            </div>
+
+        </div>
+
+        <button
+            id="close-help-bottom"
+            class="primary-button"
+            type="button"
+        >
+            فهمیدم، بزن بریم!
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ========================= -->
+<!-- پنجره پایان بازی -->
+<!-- ========================= -->
+
+<div id="final-modal" class="modal hidden">
+
+    <div class="modal-content final-content">
+
+        <div class="final-icon">
+            🏆
+        </div>
+
+        <h2>شهر یاخته نجات پیدا کرد!</h2>
+
+        <p id="final-description">
+            مأموریت‌های شهر را به پایان رساندی.
+        </p>
+
+        <div class="final-score-box">
+
+            <span>امتیاز نهایی</span>
+
+            <strong id="final-score">
+                ۰
+            </strong>
+
+        </div>
+
+        <div class="final-buttons">
+
+            <button
+                id="restart-game"
+                class="primary-button"
+                type="button"
+            >
+                🔄 شروع دوباره
+            </button>
+
+            <button
+                id="final-close"
+                class="secondary-button"
+                type="button"
+            >
+                مشاهده شهر
+            </button>
+
+            <button
+                id="final-restart"
+                class="secondary-button"
+                type="button"
+            >
+                🏙️ بازی دوباره
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ========================= -->
+<!-- پنجره مأموریت مسیر پروتئین -->
+<!-- ========================= -->
+
+<div id="protein-modal" class="modal hidden">
+
+    <div class="modal-content protein-content">
+
+        <button
+            id="protein-close"
+            class="modal-close"
+            type="button"
+        >
+            ×
+        </button>
+
+        <div id="protein-step-icon" class="protein-step-icon">
+            🏭
+        </div>
+
+        <span class="protein-label">
+            مسیر یک پروتئین
+        </span>
+
+        <h2 id="protein-step-title">
+            رناتن
+        </h2>
+
+        <p id="protein-step-text">
+            ساخت پروتئین از رناتن آغاز می‌شود.
+        </p>
+
+        <div class="protein-progress">
+            <div id="protein-progress-fill"></div>
+        </div>
+
+        <button
+            id="protein-next"
+            class="primary-button"
+            type="button"
+        >
+            مرحله بعد ➜
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- اسکریپت‌ها -->
+<script src="questions.js"></script>
+<script src="missions.js"></script>
+<script src="game.js"></script>
+```
+
+</body>
+</html>
